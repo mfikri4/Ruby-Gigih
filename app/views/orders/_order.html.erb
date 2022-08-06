@@ -1,0 +1,22 @@
+<div id="<%= dom_id order %>">
+
+          <tbody>
+              <tr>
+                <td class="text-left py-3 px-3"><%= 1 %></td>
+                <td class="text-left py-3 px-3"><%= order.order_date %></td>
+                <td class="text-left py-3 px-3"><%= order.total_price %></td>
+                <td class="text-left py-3 px-3"><%= order.payment_status %></td>
+                <td class="text-left py-3 px-3"><%= order.customer_id %></td>
+                
+                <td class="text-center py-3 px-3">
+                  <%= button_to(edit_order_path(order), method: 'get', class: "text-white bg-blue-500 hover:bg-blue-700 py-2 px-3 my-1 rounded") do %>
+  <div>Edit</div>
+<% end %>
+  <%= button_to(order_path(order), method: 'delete', class: "text-white bg-red-500 hover:bg-red-700 py-2 px-3 my-1 rounded") do %>
+  <div>Hapus</div>
+<% end %>
+                </td>
+              </tr>
+          </tbody>
+
+</div>

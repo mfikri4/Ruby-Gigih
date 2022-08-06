@@ -1,0 +1,18 @@
+<div id="<%= dom_id customer %>">
+
+          <tbody>
+              <tr>
+                <td class="text-left py-3 px-3"><%= customer.email %></td>
+                
+                <td class="text-center py-3 px-3">
+                  <%= button_to(edit_customer_path(customer), method: 'get', class: "text-white bg-blue-500 hover:bg-blue-700 py-2 px-3 my-1 rounded") do %>
+  <div>Edit</div>
+<% end %>
+  <%= button_to(customer_path(customer), method: 'delete', class: "text-white bg-red-500 hover:bg-red-700 py-2 px-3 my-1 rounded") do %>
+  <div>Hapus</div>
+<% end %>
+                </td>
+              </tr>
+          </tbody>
+
+</div>

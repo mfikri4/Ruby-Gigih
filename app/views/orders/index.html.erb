@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-3xl font-bold text-black">Order</h1>
+<%= button_to(new_order_path(@order), method: 'get', class: "my-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded") do %>
+  <div>Tambah Order</div>
+<% end %>
+    <table class="min-w-full bg-white">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">No</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Order Date</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Total Harga</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Payment Status</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Customer</td>
+                <td class="text-center py-3 px-2 uppercase font-semibold text-sm">Action</td>
+            </tr>
+          </thead>
+<div id="orders">
+  <% @orders.each_with_index do |order, i| %>
+
+    <%= render order %>
+  <% end %>
+</div>        
+  </table>
+

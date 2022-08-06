@@ -1,0 +1,26 @@
+
+  <div class="w-full mt-4">
+    <div class="leading-loose">
+<%= form_with(model: customer) do |form| %>
+  <% if customer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% customer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= csrf_meta_tags %>
+    <div class="mt-2 my-6">
+        <label class="block text-lg text-gray-600" for="title">Email</label>
+                      <%= form.text_field :email, placeholder: "Email" , class: 'w-1/3 px-3 py-2 text-gray-700 bg-gray-200 rounded'%>
+    </div>
+            <%= form.submit "Tambah Data", class: 'text-white bg-green-500 hover:bg-green-400 py-1 px-3 rounded'%>
+            <a href="/customers" class="text-white bg-gray-700 hover:bg-gray-400 py-3 px-4 rounded"><i class="fas fa-chevron-circle-left"></i> Kembali</a>
+        <% end %>
+      </div>
+    </div>

@@ -1,0 +1,38 @@
+  <div class="w-full mt-4">
+    <div class="leading-loose">
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= csrf_meta_tags %>
+    <div class="mt-2 my-6">
+        <label class="block text-lg text-gray-600" for="title">Order Date</label>
+                      <%= form.date_field :order_date, placeholder: "Order Date" , class: 'w-1/3 px-3 py-2 text-gray-700 bg-gray-200 rounded'%>
+    </div>
+    <div class="mt-2 my-6">
+    <label class="block text-lg text-gray-600" for="title">Total Harga</label>
+                  <%= form.text_field :email, placeholder: "Email" , class: 'w-1/3 px-3 py-2 text-gray-700 bg-gray-200 rounded'%>
+    </div>
+    <div class="mt-2 my-6">
+    <label class="block text-lg text-gray-600" for="title">Status Pembayaran</label>
+                  <%= form.text_field :payment_status, placeholder: "Payment Status" , class: 'w-1/3 px-3 py-2 text-gray-700 bg-gray-200 rounded'%>
+    </div>
+    <div class="mt-2 my-6">
+    <label class="block text-lg text-gray-600" for="title">Customer</label>
+    <%= form.collection_select(:customer_id, Customer.all, :id, :email, :prompt => 'Select') %>
+    </div>
+            <%= form.submit "Tambah Data", class: 'text-white bg-green-500 hover:bg-green-400 py-1 px-3 rounded'%>
+            <a href="/orders" class="text-white bg-gray-700 hover:bg-gray-400 py-3 px-4 rounded"><i class="fas fa-chevron-circle-left"></i> Kembali</a>
+        <% end %>
+      </div>
+    </div>
+

@@ -1,0 +1,44 @@
+
+<h1 class="text-3xl font-bold text-black">Menu Pesanan</h1>
+  
+<%= button_to(new_menu_path(@menu), method: 'get', class: "my-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded") do %>
+  <div>Tambah Menu</div>
+<% end %>
+
+    <div class="w-full mt-2 my-2">
+      <div class="bg-white overflow-auto my-2">
+        <table class="min-w-full bg-white">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">No</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Name</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Price</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Category</td>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Deskripsi</td>
+                <td class="text-center py-3 px-2 uppercase font-semibold text-sm">Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @menus.each_with_index do |menu,i| %>
+              <tr>
+                <td class="text-left py-3 px-3"><%= i + 1 %></td>
+                <td class="text-left py-3 px-3"><%= menu.name %></td>
+                <td class="text-left py-3 px-3"><%= menu.price %></td>
+                <td class="text-left py-3 px-3"><%= menu.category_id %></td>
+                <td class="text-left py-3 px-3"><%= menu.desc %></td>
+                <td class="text-center py-3 px-3">
+                  <%= button_to(edit_menu_path(menu), method: 'get', class: "text-white bg-blue-500 hover:bg-blue-700 py-2 px-3 my-1 rounded") do %>
+  <div>Edit</div>
+<% end %>
+  <%= button_to(menu_path(menu), method: 'delete', class: "text-white bg-red-500 hover:bg-red-700 py-2 px-3 my-1 rounded") do %>
+  <div>Hapus</div>
+<% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+

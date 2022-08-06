@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-3xl font-bold text-black">Customer</h1>
+<%= button_to(new_customer_path(@customer), method: 'get', class: "my-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded") do %>
+  <div>Tambah Customer</div>
+<% end %>
+    <table class="min-w-full bg-white">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+                <td class="text-left py-3 px-3 uppercase font-semibold text-sm">Email</td>
+                <td class="text-center py-3 px-2 uppercase font-semibold text-sm">Action</td>
+            </tr>
+          </thead>
+<div id="customers">
+  <% @customers.each do |customer| %>
+    <%= render customer %>
+  <% end %>
+</div>
+  
+  </table>
